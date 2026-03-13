@@ -12,7 +12,7 @@ const tiers = [
       "Free Public Skate sessions",
       "Free Cosmic Skate sessions",
       "Free rental skates",
-      "25% off monthly locker rentals",
+      "20% off monthly locker rentals",
     ],
     cta: "Purchase",
   },
@@ -25,7 +25,7 @@ const tiers = [
       "Free Public Skate sessions",
       "Free Cosmic Skate sessions",
       "Free rental skates",
-      "25% off monthly locker rentals",
+      "20% off monthly locker rentals",
     ],
     cta: "Purchase",
   },
@@ -83,7 +83,7 @@ export default function App() {
                 <li>Public Skate sessions</li>
                 <li>Cosmic Skate sessions</li>
                 <li>Rental skates</li>
-                <li>25% off monthly locker rentals</li>
+                <li>20% off monthly locker rentals</li>
               </ul>
 
               <div className="heroCardNote">
@@ -182,7 +182,7 @@ export default function App() {
                 <h3>Are locker rentals included?</h3>
                 <p>
                   Locker rentals are optional and not included, but members
-                  receive 25% off monthly locker rentals.
+                  receive 20% off monthly locker rentals.
                 </p>
               </div>
 
