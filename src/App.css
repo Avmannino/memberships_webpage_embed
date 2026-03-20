@@ -85,12 +85,13 @@ a {
 .heroCardTop {
   position: relative;
   z-index: 1;
-  margin-bottom: 24px;
+  margin-top: 10px;    /* pushes heading slightly down */
+  margin-bottom: 8px;
 }
 
 .heroCardHeading {
   margin: 0;
-  font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+  font-size: clamp(1.8rem, 2.8vw, 3rem);
   line-height: 1;
   letter-spacing: -0.04em;
   color: var(--text);
@@ -244,10 +245,12 @@ a {
   color: var(--text);
   font-size: 23px;
   font-weight: 600;
+  margin-top: 00px;   /* was effectively lower before */
+  margin-bottom: 128px; /* adds space before heading */
 }
 
 .heroList li {
-  line-height: 1.5;
+  line-height: 1.35;
 }
 
 .heroCardNote {

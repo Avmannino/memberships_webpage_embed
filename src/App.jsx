@@ -84,9 +84,6 @@ export default function App() {
 
           <div className="heroCard">
             <div className="heroCardInner">
-              <div className="heroCardTop">
-                <h2 className="heroCardHeading">Skate More, Pay Less.</h2>
-              </div>
               <div className="heroCardBottomContent">
                 <p className="heroCardLabel">Your Membership Includes:</p>
 
@@ -97,6 +94,10 @@ export default function App() {
                   <li>Rental skates</li>
                   <li>20% off monthly locker rentals</li>
                 </ul>
+
+                <div className="heroCardTop">
+                  <h2 className="heroCardHeading">Skate More, Pay Less.</h2>
+                </div>
               </div>
 
               <div className="heroCardNote">
