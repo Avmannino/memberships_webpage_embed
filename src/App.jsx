@@ -1,4 +1,5 @@
 import "./App.css";
+import logo from "./assets/wings-logo.png";
 
 const CONTACT_EMAIL = "info@wingsarena.com";
 
@@ -45,7 +46,13 @@ export default function App() {
       <header className="hero">
         <div className="container heroGrid">
           <div className="heroContent">
-            <p className="eyebrow">Wings Arena Memberships</p>
+            <div className="heroLogoWrap">
+              <img
+                src={logo}
+                alt="Wings Arena Memberships"
+                className="heroLogo"
+              />
+            </div>
 
             <h1>
               More Ice Time.
@@ -77,14 +84,20 @@ export default function App() {
 
           <div className="heroCard">
             <div className="heroCardInner">
-              <p className="heroCardLabel">Included with Membership</p>
-              <ul className="heroList">
-                <li>Stick &amp; Puck sessions</li>
-                <li>Public Skate sessions</li>
-                <li>Cosmic Skate sessions</li>
-                <li>Rental skates</li>
-                <li>20% off monthly locker rentals</li>
-              </ul>
+              <div className="heroCardTop">
+                <h2 className="heroCardHeading">Skate More, Pay Less.</h2>
+              </div>
+              <div className="heroCardBottomContent">
+                <p className="heroCardLabel">Your Membership Includes:</p>
+
+                <ul className="heroList">
+                  <li>Stick &amp; Puck sessions</li>
+                  <li>Public Skate sessions</li>
+                  <li>Cosmic Skate sessions</li>
+                  <li>Rental skates</li>
+                  <li>20% off monthly locker rentals</li>
+                </ul>
+              </div>
 
               <div className="heroCardNote">
                 <strong>Now offering:</strong> Individual and family monthly

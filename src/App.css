@@ -70,6 +70,33 @@ a {
   padding: 42px;
 }
 
+.heroLogoWrap {
+  margin-bottom: 1.25rem;
+  display: flex;
+  justify-content: start;
+}
+
+.heroLogo {
+  display: block;
+  width: clamp(90px, 18vw, 90px);
+  height: auto;
+}
+
+.heroCardTop {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 24px;
+}
+
+.heroCardHeading {
+  margin: 0;
+  font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--text);
+  max-width: none;
+}
+
 .eyebrow,
 .sectionEyebrow,
 .cardBadge,
@@ -129,7 +156,7 @@ a {
 }
 
 .primaryBtn {
-  background:rgba(250, 65, 65, 0.836);
+  background: rgba(250, 65, 65, 0.836);
   color: #fff;
   box-shadow: 0 12px 28px rgba(218, 0, 53, 0.28);
 }
@@ -172,7 +199,6 @@ a {
 
 .heroCardInner {
   width: 100%;
-  background: ;
   color: var(--text);
   border-radius: var(--radius-xl);
   padding: 34px;
@@ -180,6 +206,10 @@ a {
   border: 1px solid var(--stroke);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 100%;
 }
 
 .heroCardInner::before {
@@ -192,6 +222,18 @@ a {
   background: rgba(250, 65, 65, 0.836);
 }
 
+.heroCardBottomContent {
+  margin-top: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.heroCardLabel {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 14px;
+}
+
 .heroList {
   margin: 0;
   padding-left: 20px;
@@ -200,7 +242,7 @@ a {
   position: relative;
   z-index: 1;
   color: var(--text);
-  font-size: 27px;
+  font-size: 23px;
   font-weight: 600;
 }
 
@@ -333,7 +375,7 @@ a {
 
 .cardTier {
   margin-bottom: 10px;
-  color: rgba(250, 65, 65, 0.74)
+  color: rgba(250, 65, 65, 0.74);
 }
 
 .cardTop h3 {
