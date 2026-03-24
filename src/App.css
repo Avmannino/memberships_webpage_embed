@@ -566,6 +566,10 @@ a {
     width: min(100% - 20px, var(--max-width));
   }
 
+  .heroLogoWrap {
+    justify-content: center;
+  }
+
   .heroContent,
   .heroCardInner,
   .sectionHeadingBlock,
