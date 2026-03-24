@@ -1,7 +1,7 @@
 import "./App.css";
 import logo from "./assets/wings-logo.png";
 
-const CONTACT_EMAIL = "info@wingsarena.com";
+const CONTACT_EMAIL = "jwanderlingh@wingsarena.com";
 
 const membershipIncludes = [
   "Free Public Skate sessions",
@@ -10,6 +10,7 @@ const membershipIncludes = [
   "Free Open Hockey Sessions",
   "Free Rental Skates",
   "20% off Locker Rentals",
+  "20% off Skate Sharpening",
   "20% off Concessions (alcohol excluded)",
   "Access to Members Only events",
 ];
@@ -18,25 +19,23 @@ const tiers = [
   {
     name: "Individual Membership",
     price: "$100/month",
-    badge: "Single Person",
+    badge: "Individual",
     perks: membershipIncludes,
-    cta: "Purchase",
   },
   {
     name: "Family Membership",
     price: "$200/month",
     badge: "Families of 2+",
     perks: membershipIncludes,
-    cta: "Purchase",
   },
 ];
 
 const includedBenefits = [
-  "Simple monthly pricing",
+  "The more you skate, the more you save",
   "Built for frequent skaters",
   "Great for hockey and recreational skating",
   "Family option available",
-  "Discount on monthly locker rentals",
+  "Perks on and off the ice",
 ];
 
 export default function App() {
@@ -155,10 +154,10 @@ export default function App() {
                     <a
                       className="cardButton"
                       href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
-                        tier.name + " Inquiry"
+                        "Wings Arena - " + tier.name + " Inquiry"
                       )}`}
                     >
-                      {tier.cta}
+                      Email Us to Join
                     </a>
 
                     <ul className="perksList">
@@ -222,7 +221,7 @@ export default function App() {
                 href={`mailto:${CONTACT_EMAIL}?subject=Wings%20Arena%20Membership%20Signup`}
                 className="primaryBtn lightBtn"
               >
-                Email info@wingsarena.com to Join
+                Email Us to Join
               </a>
             </div>
           </div>
