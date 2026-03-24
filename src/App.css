@@ -521,6 +521,15 @@ a {
   justify-content: center;
 }
 
+@media (hover: none) {
+  .pricingCard:hover {
+    transform: none;
+    box-shadow:
+      0 0 0 1px rgba(218, 0, 53, 0.22),
+      0 16px 38px rgba(0, 0, 0, 0.34);
+  }
+}
+
 @media (max-width: 980px) {
   .heroGrid,
   .introGrid,
