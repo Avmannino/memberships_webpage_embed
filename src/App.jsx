@@ -159,6 +159,7 @@ export default function App() {
                       href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
                         "Wings Arena - " + tier.name + " Inquiry"
                       )}`}
+                      target="_top"
                     >
                       Email Us to Join
                     </a>
@@ -223,6 +224,7 @@ export default function App() {
               <a
                 href={`mailto:${CONTACT_EMAIL}?subject=Wings%20Arena%20Membership%20Signup`}
                 className="primaryBtn lightBtn"
+                target="_top"
               >
                 Email Us to Join
               </a>
