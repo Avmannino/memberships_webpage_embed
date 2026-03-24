@@ -3,31 +3,30 @@ import logo from "./assets/wings-logo.png";
 
 const CONTACT_EMAIL = "info@wingsarena.com";
 
+const membershipIncludes = [
+  "Free Public Skate sessions",
+  "Free Cosmic Skate sessions",
+  "Free Stick & Puck Sessions",
+  "Free Open Hockey Sessions",
+  "Free Rental Skates",
+  "20% off Locker Rentals",
+  "20% off Concessions (alcohol excluded)",
+  "Access to Members Only events",
+];
+
 const tiers = [
   {
     name: "Individual Membership",
     price: "$100/month",
     badge: "Single Person",
-    perks: [
-      "Free Stick & Puck sessions",
-      "Free Public Skate sessions",
-      "Free Cosmic Skate sessions",
-      "Free rental skates",
-      "20% off monthly locker rentals",
-    ],
+    perks: membershipIncludes,
     cta: "Purchase",
   },
   {
     name: "Family Membership",
     price: "$200/month",
     badge: "Families of 2+",
-    perks: [
-      "Free Stick & Puck sessions",
-      "Free Public Skate sessions",
-      "Free Cosmic Skate sessions",
-      "Free rental skates",
-      "20% off monthly locker rentals",
-    ],
+    perks: membershipIncludes,
     cta: "Purchase",
   },
 ];
@@ -85,19 +84,17 @@ export default function App() {
           <div className="heroCard">
             <div className="heroCardInner">
               <div className="heroCardBottomContent">
-                <p className="heroCardLabel">Your Membership Includes:</p>
-
-                <ul className="heroList">
-                  <li>Stick &amp; Puck sessions</li>
-                  <li>Public Skate sessions</li>
-                  <li>Cosmic Skate sessions</li>
-                  <li>Rental skates</li>
-                  <li>20% off monthly locker rentals</li>
-                </ul>
-
                 <div className="heroCardTop">
                   <h2 className="heroCardHeading">Skate More, Pay Less.</h2>
                 </div>
+
+                <p className="heroCardLabel">Your Membership Includes:</p>
+
+                <ul className="heroList">
+                  {membershipIncludes.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
               </div>
 
               <div className="heroCardNote">
