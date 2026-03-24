@@ -514,6 +514,7 @@ a {
   padding: 0 108px;
   min-height: 53px;
   font-size: 1.05rem;
+  white-space: nowrap;
 }
 
 .centeredCta {
