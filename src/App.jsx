@@ -148,7 +148,10 @@ export default function App() {
                   <div className="pricingCardInner">
                     <div className="cardTop">
                       <p className="cardTier">{tier.badge}</p>
-                      <h3>{tier.price}</h3>
+                      <h3>
+                        {tier.price.replace("/month", "")}
+                        <span className="priceMonth">/month</span>
+                      </h3>
                     </div>
 
                     <a

@@ -381,9 +381,16 @@ a {
   color: rgba(250, 65, 65, 0.74);
 }
 
+.priceMonth {
+  font-size: 1rem;
+  font-weight: 500;
+  opacity: 0.7;
+  margin-left: 4px;
+}
+
 .cardTop h3 {
   margin: 0;
-  font-size: 2.35rem;
+  font-size: 1.8rem;
   line-height: 1;
   color: #ffffff;
   font-weight: 700;
