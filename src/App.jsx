@@ -40,6 +40,21 @@ const includedBenefits = [
 ];
 
 export default function App() {
+  const handleScrollToPricing = (e) => {
+    e.preventDefault();
+
+    const el = document.getElementById("pricing");
+    if (!el) return;
+
+    const offset = 24;
+    const top = el.getBoundingClientRect().top + window.scrollY - offset;
+
+    window.scrollTo({
+      top,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className="pageShell">
       <header className="hero">
@@ -62,45 +77,24 @@ export default function App() {
             </h1>
 
             <p className="heroText">
-              Built for skaters and families who live at the rink. Get unlimited access to popular rink programs and member perks that more than pay for themselves.
+              Built for skaters and families who live at the rink. Get unlimited
+              access to popular rink programs and member perks that more than pay
+              for themselves.
             </p>
 
-            <a
-              href="#pricing"
-              className="scrollHint"
-              onClick={(e) => {
-                e.preventDefault();
-                const el = document.getElementById("pricing");
-                if (!el) return;
-
-                const getScroller = () => {
-                  const d = document.documentElement;
-                  const b = document.body;
-                  d.scrollTop += 1;
-                  if (d.scrollTop > 0) { d.scrollTop -= 1; return d; }
-                  b.scrollTop += 1;
-                  if (b.scrollTop > 0) { b.scrollTop -= 1; return b; }
-                  return d;
-                };
-
-                const scroller = getScroller();
-                const start = scroller.scrollTop;
-                const target = el.getBoundingClientRect().top + start;
-                const distance = target - start;
-                const duration = 600;
-                const ease = (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-                let startTime = null;
-                const step = (timestamp) => {
-                  if (!startTime) startTime = timestamp;
-                  const progress = Math.min((timestamp - startTime) / duration, 1);
-                  scroller.scrollTop = start + distance * ease(progress);
-                  if (progress < 1) requestAnimationFrame(step);
-                };
-                requestAnimationFrame(step);
-              }}
-            >
+            <a href="#pricing" className="scrollHint" onClick={handleScrollToPricing}>
               <span>View membership options</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <polyline points="6 9 12 15 18 9" />
               </svg>
             </a>
@@ -121,8 +115,6 @@ export default function App() {
                   ))}
                 </ul>
               </div>
-
-
             </div>
           </div>
         </div>
@@ -136,9 +128,9 @@ export default function App() {
               <h2>Built for regular skaters, hockey players, and active families</h2>
               <p className="sectionText">
                 Some skaters stop by the rink. Others practically call it home.
-                If skating is part of your regular routine, a Wings Arena membership
-                just makes sense — unlimited sessions, free rentals, and monthly
-                perks all in one bundle!
+                If skating is part of your regular routine, a Wings Arena
+                membership just makes sense — unlimited sessions, free rentals,
+                and monthly perks all in one bundle!
               </p>
             </div>
 
@@ -153,19 +145,29 @@ export default function App() {
           </div>
         </section>
 
-        <section id="pricing" className="section pricingSection">
+        <section
+          id="pricing"
+          className="section pricingSection"
+          style={{ scrollMarginTop: "24px" }}
+        >
           <div className="container">
             <div className="sectionHeadingCentered">
               <p className="sectionEyebrow">Membership Plans</p>
               <h2>Choose the option that fits your household</h2>
               <p className="sectionText centeredText">
-                Same perks, two plans — one for individuals, one for families of 2 or more.
+                Same perks, two plans — one for individuals, one for families of
+                2 or more.
               </p>
             </div>
 
             <div className="promoCallout">
-              <span className="promoTag"><span className="promoDot" />Limited Offer</span>
-              <span className="promoText">Buy 6 months, get your 7th month free.</span>
+              <span className="promoTag">
+                <span className="promoDot" />
+                Limited Offer
+              </span>
+              <span className="promoText">
+                Buy 6 months, get your 7th month free.
+              </span>
             </div>
 
             <div className="pricingGrid">
@@ -200,7 +202,9 @@ export default function App() {
               ))}
             </div>
 
-            <p className="finePrint">All memberships require a 2-month minimum commitment.</p>
+            <p className="finePrint">
+              All memberships require a 2-month minimum commitment.
+            </p>
           </div>
         </section>
 
@@ -239,8 +243,8 @@ export default function App() {
               <div className="faqItem">
                 <h3>Can I cancel anytime?</h3>
                 <p>
-                  Yes. You are free to cancel at any
-                  time with no additional fees or penalties.
+                  Yes. You are free to cancel at any time with no additional fees
+                  or penalties.
                 </p>
               </div>
             </div>
