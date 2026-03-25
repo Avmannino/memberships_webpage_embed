@@ -583,6 +583,12 @@ a {
   border-radius: 50%;
   background: rgba(250, 65, 65, 0.836);
   pointer-events: none;
+  z-index: 0;
+}
+
+.ctaPanel > * {
+  position: relative;
+  z-index: 1;
 }
 
 .ctaPanel {
