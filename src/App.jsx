@@ -46,10 +46,37 @@ export default function App() {
     const el = document.getElementById("pricing");
     if (!el) return;
 
-    el.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+    const isMobile = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+    if (!isMobile) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+
+    const getScroller = () => {
+      const d = document.documentElement;
+      const b = document.body;
+      d.scrollTop += 1;
+      if (d.scrollTop > 0) { d.scrollTop -= 1; return d; }
+      b.scrollTop += 1;
+      if (b.scrollTop > 0) { b.scrollTop -= 1; return b; }
+      return d;
+    };
+
+    const scroller = getScroller();
+    const start = scroller.scrollTop;
+    const target = el.getBoundingClientRect().top + start;
+    const distance = target - start;
+    const duration = 600;
+    const ease = (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    let startTime = null;
+    const step = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      scroller.scrollTop = start + distance * ease(progress);
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
   };
 
   return (
