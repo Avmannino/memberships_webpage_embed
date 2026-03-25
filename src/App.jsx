@@ -41,24 +41,34 @@ const includedBenefits = [
 
 export default function App() {
   const handleScrollToPricing = (e) => {
+    const el = document.getElementById("pricing");
+    if (!el) return;
+
     const isMobile =
       "ontouchstart" in window ||
       navigator.maxTouchPoints > 0 ||
       window.innerWidth <= 980;
 
-    if (isMobile) {
+    if (!isMobile) {
+      e.preventDefault();
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
       return;
     }
 
-    e.preventDefault();
+    // Mobile only:
+    // Use native anchor/hash behavior with a direct fallback scroll.
+    // This avoids the custom mobile scrollTop animation that was failing.
+    window.location.hash = "pricing";
 
-    const el = document.getElementById("pricing");
-    if (!el) return;
+    setTimeout(() => {
+      const target = document.getElementById("pricing");
+      if (!target) return;
 
-    el.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+      target.scrollIntoView({
+        behavior: "auto",
+        block: "start",
+      });
+    }, 50);
   };
 
   return (
@@ -135,9 +145,7 @@ export default function App() {
           <div className="container introGrid">
             <div className="sectionHeadingBlock">
               <p className="sectionEyebrow">Why Join?</p>
-              <h2>
-                Built for regular skaters, hockey players, and active families
-              </h2>
+              <h2>Built for regular skaters, hockey players, and active families</h2>
               <p className="sectionText">
                 Some skaters stop by the rink. Others practically call it home.
                 If skating is part of your regular routine, a Wings Arena
@@ -255,8 +263,8 @@ export default function App() {
               <div className="faqItem">
                 <h3>Can I cancel anytime?</h3>
                 <p>
-                  Yes. You are free to cancel at any time with no additional
-                  fees or penalties.
+                  Yes. You are free to cancel at any time with no additional fees
+                  or penalties.
                 </p>
               </div>
             </div>
