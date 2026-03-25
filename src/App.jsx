@@ -5,9 +5,10 @@ const CONTACT_EMAIL = "jwanderlingh@wingsarena.com";
 
 const membershipIncludes = [
   "Free Public Skate sessions",
+  "Free Drop-In Figure Skating sessions",
   "Free Cosmic Skate sessions",
-  "Free Stick & Puck Sessions",
-  "Free Open Hockey Sessions",
+  "Free Stick & Puck sessions",
+  "Free Open Hockey sessions",
   "Free Rental Skates",
   "20% off Locker Rentals",
   "20% off Skate Sharpening",
@@ -34,8 +35,8 @@ const includedBenefits = [
   "The more you skate, the more you save",
   "Built for frequent skaters",
   "Great for hockey and recreational skating",
-  "Family option available",
   "Perks on and off the ice",
+  "Cancel anytime!",
 ];
 
 export default function App() {
@@ -101,10 +102,7 @@ export default function App() {
                 </ul>
               </div>
 
-              <div className="heroCardNote">
-                <strong>Now offering:</strong> Individual and family monthly
-                memberships.
-              </div>
+
             </div>
           </div>
         </div>
@@ -114,13 +112,13 @@ export default function App() {
         <section className="section introSection">
           <div className="container introGrid">
             <div className="sectionHeadingBlock">
-              <p className="sectionEyebrow">Why Join</p>
+              <p className="sectionEyebrow">Why Join?</p>
               <h2>Built for regular skaters, hockey players, and active families</h2>
               <p className="sectionText">
-                If you are coming to the rink consistently, a membership helps
-                you save while making each visit easier. Whether you are
-                practicing, skating recreationally, or bringing the family, this
-                is a simple way to get more from Wings Arena every month.
+                Some skaters stop by the rink. Others practically call it home.
+                If skating is part of your regular routine, a Wings Arena membership
+                just makes sense — unlimited sessions, free rentals, and monthly
+                perks all in one bundle!
               </p>
             </div>
 
@@ -141,10 +139,13 @@ export default function App() {
               <p className="sectionEyebrow">Membership Plans</p>
               <h2>Choose the option that fits your household</h2>
               <p className="sectionText centeredText">
-                Both plans include the same core perks. The difference is
-                whether the membership is for one person or for a family of 2 or
-                more.
+                Same perks, two plans — one for individuals, one for families of 2 or more.
               </p>
+            </div>
+
+            <div className="promoCallout">
+              <span className="promoTag"><span className="promoDot" />Limited Offer</span>
+              <span className="promoText">Buy 6 months, get your 7th month free.</span>
             </div>
 
             <div className="pricingGrid">
@@ -178,6 +179,8 @@ export default function App() {
                 </article>
               ))}
             </div>
+
+            <p className="finePrint">All memberships require a 2-month minimum commitment.</p>
           </div>
         </section>
 
@@ -210,6 +213,14 @@ export default function App() {
                 <p>
                   Email Wings Arena to ask questions, confirm details, or sign
                   up for the membership option that fits you best.
+                </p>
+              </div>
+
+              <div className="faqItem">
+                <h3>Can I cancel anytime?</h3>
+                <p>
+                  Yes. You are free to cancel at any
+                  time with no additional fees or penalties.
                 </p>
               </div>
             </div>

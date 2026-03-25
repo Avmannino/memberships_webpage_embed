@@ -230,7 +230,7 @@ a {
   width: 100%;
   color: var(--text);
   border-radius: var(--radius-xl);
-  padding: 38px 34px 34px;
+  padding: 38px 34px 55px;
   box-shadow: var(--shadow);
   border: 1px solid var(--stroke);
   position: relative;
@@ -254,7 +254,7 @@ a {
 .heroCardBottomContent {
   position: relative;
   z-index: 1;
-  margin-top: 0;
+  margin-top: auto;
 }
 
 .heroCardLabel {
@@ -290,6 +290,71 @@ a {
   z-index: 1;
   color: var(--muted);
   max-width: 600px;
+}
+
+.promoCallout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  max-width: 480px;
+  margin: 0 auto 28px;
+  padding: 14px 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(250, 65, 65, 0.35);
+  background: rgba(250, 65, 65, 0.07);
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.promoDot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  margin-right: 6px;
+  vertical-align: 0px;
+  animation: blink 1.2s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.promoText {
+  position: relative;
+  top: -1px;
+}
+
+.promoTag {
+  background: rgba(250, 65, 65, 0.836);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 3px 9px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.cancelNote {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin: 6px 0 0;
+}
+
+.finePrint {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--muted);
+  opacity: 0.6;
 }
 
 .section {
@@ -469,20 +534,17 @@ a {
 }
 
 .faqGrid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 24px;
-  align-items: start;
-}
-
-.faqGrid > div:first-child {
+  align-items: center;
   text-align: center;
 }
 
 .faqList {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
 }
 
 .faqItem {
@@ -490,20 +552,21 @@ a {
   border: 1px solid var(--stroke);
   box-shadow: var(--shadow);
   border-radius: 22px;
-  padding: 24px;
+  padding: 20px 16px;
   text-align: center;
 }
 
 .faqItem h3 {
   margin: 0;
   color: var(--text);
-  font-size: 1.1rem;
+  font-size: 0.95rem;
 }
 
 .faqItem p {
-  margin: 10px 0 0;
+  margin: 8px 0 0;
   color: var(--muted);
-  line-height: 1.7;
+  line-height: 1.6;
+  font-size: 0.85rem;
   text-align: center;
 }
 
@@ -582,7 +645,7 @@ a {
   }
 
   .faqList {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .heroContent,
