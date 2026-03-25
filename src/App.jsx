@@ -285,8 +285,7 @@ export default function App() {
             <p className="sectionEyebrow lightEyebrow">Get Started</p>
             <h2>Ready to make the rink part of your monthly routine?</h2>
             <p>
-              Reach out to learn more about memberships, eligibility, and how to
-              get started.
+              Reach out to us and let us know if you have any additional questions!
             </p>
 
             <div className="ctaActions centeredCta">
