@@ -67,13 +67,14 @@ export default function App() {
             </p>
 
             <div className="heroActions">
-              <a href="#pricing" className="primaryBtn">
+              <a href="#pricing" className="primaryBtn" target="_top">
                 View Membership Options
               </a>
 
               <a
                 href={`mailto:${CONTACT_EMAIL}?subject=Wings%20Arena%20Membership%20Inquiry`}
                 className="secondaryBtn"
+                target="_top"
               >
                 Email to Join
               </a>
