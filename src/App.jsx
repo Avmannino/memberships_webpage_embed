@@ -56,19 +56,28 @@ export default function App() {
     }
 
     // Mobile only:
-    // Use native anchor/hash behavior with a direct fallback scroll.
-    // This avoids the custom mobile scrollTop animation that was failing.
-    window.location.hash = "pricing";
+    // prevent the default jump and use window-based scrolling instead of the
+    // custom scroller animation that was failing on mobile.
+    e.preventDefault();
 
+    const top =
+      el.getBoundingClientRect().top + window.pageYOffset - 24;
+
+    window.scrollTo({
+      top,
+      behavior: "smooth",
+    });
+
+    // Fallback for mobile browsers / embeds that ignore smooth window scrolling.
     setTimeout(() => {
-      const target = document.getElementById("pricing");
-      if (!target) return;
+      const retryEl = document.getElementById("pricing");
+      if (!retryEl) return;
 
-      target.scrollIntoView({
-        behavior: "auto",
-        block: "start",
-      });
-    }, 50);
+      const retryTop =
+        retryEl.getBoundingClientRect().top + window.pageYOffset - 24;
+
+      window.scrollTo(0, retryTop);
+    }, 450);
   };
 
   return (
