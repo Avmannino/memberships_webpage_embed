@@ -74,21 +74,15 @@ export default function App() {
               </a>
             </div>
 
-            <button
+            <a
+              href="#pricing"
               className="scrollHint"
-              onClick={() => {
-                const el = document.getElementById("pricing");
-                if (!el) return;
-                const scroller = document.scrollingElement || document.documentElement;
-                const top = el.getBoundingClientRect().top + scroller.scrollTop;
-                scroller.scrollTo({ top, behavior: "smooth" });
-              }}
             >
               <span>View membership options</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="6 9 12 15 18 9" />
               </svg>
-            </button>
+            </a>
           </div>
 
           <div className="heroCard">
