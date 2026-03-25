@@ -65,19 +65,13 @@ export default function App() {
               Built for skaters and families who live at the rink. Get unlimited access to popular rink programs and member perks that more than pay for themselves.
             </p>
 
-            <div className="heroActions">
-              <a
-                href={`mailto:${CONTACT_EMAIL}?subject=Wings%20Arena%20Membership%20Inquiry`}
-                className="secondaryBtn"
-                target="_top"
-              >
-                Email to Join
-              </a>
-            </div>
-
             <a
               href="#pricing"
               className="scrollHint"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" });
+              }}
             >
               <span>View membership options</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -229,7 +223,7 @@ export default function App() {
 
         <section className="section ctaSection">
           <div className="container ctaPanel">
-            <p className="sectionEyebrow lightEyebrow">Wings Arena</p>
+            <p className="sectionEyebrow lightEyebrow">Get Started</p>
             <h2>Ready to make the rink part of your monthly routine?</h2>
             <p>
               Reach out to learn more about memberships, eligibility, and how to

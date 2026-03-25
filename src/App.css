@@ -184,7 +184,7 @@ a {
   border: none;
   cursor: pointer;
   color: #d64042;
-  font-size: 1.05rem;
+  font-size: 1.21rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   animation: scrollBounce 2s ease-in-out infinite;
@@ -244,9 +244,9 @@ a {
 .heroCardInner::before {
   content: "";
   position: absolute;
-  inset: auto -80px -80px auto;
-  width: 220px;
-  height: 220px;
+  inset: auto -130px -130px auto;
+  width: 340px;
+  height: 340px;
   border-radius: 50%;
   background: rgba(250, 65, 65, 0.836);
 }
@@ -470,7 +470,7 @@ a {
 }
 
 .cardTier {
-  margin-bottom: 10px;
+  margin-bottom: 18px;
   color: rgba(250, 65, 65, 0.74);
 }
 
@@ -574,7 +574,20 @@ a {
   padding-bottom: 48px;
 }
 
+.ctaPanel::before {
+  content: "";
+  position: absolute;
+  inset: -80px auto auto -80px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: rgba(250, 65, 65, 0.836);
+  pointer-events: none;
+}
+
 .ctaPanel {
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(135deg, #111f3d, #0a1530);
   color: var(--text);
   border-radius: 32px;
@@ -625,7 +638,7 @@ a {
 
 @media (min-width: 981px) {
   .scrollHint {
-    font-size: 1.25rem;
+    font-size: 1.44rem;
     gap: 8px;
   }
 }
@@ -651,9 +664,26 @@ a {
   .heroContent,
   .heroCardInner,
   .benefitsPanel,
-  .faqItem,
   .ctaPanel {
     padding: 26px;
+  }
+
+  .scrollHint {
+    font-size: 1.35rem;
+  }
+
+  .faqItem {
+    padding: 14px 12px;
+  }
+
+  .faqItem h3 {
+    font-size: 0.85rem;
+  }
+
+  .faqItem p {
+    font-size: 0.78rem;
+    line-height: 1.45;
+    margin-top: 11px;
   }
 
   .hero {
@@ -688,6 +718,20 @@ a {
   .hero h1 {
     font-size: 2.4rem;
     text-align: center;
+  }
+
+  .ctaPanel > p {
+    font-size: 0.82rem;
+  }
+
+  .ctaPanel::before {
+    width: 130px;
+    height: 130px;
+    inset: -50px auto auto -50px;
+  }
+
+  .heroCardLabel {
+    margin-top: 48px;
   }
 
   .heroText,
@@ -728,13 +772,16 @@ a {
   }
 
   .benefitRow {
-    justify-content: center;
-    text-align: center;
+    justify-content: flex-start;
+    text-align: left;
   }
 
   .benefitsPanel {
-    display: grid;
-    justify-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: fit-content;
+    margin: 0 auto;
   }
 
   .perksList {
