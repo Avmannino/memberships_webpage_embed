@@ -57,20 +57,14 @@ export default function App() {
               <br />
               More Value.
               <br />
-              One Simple Membership.
+              One Membership.
             </h1>
 
             <p className="heroText">
-              Our new memberships are designed for skaters and families who
-              visit often and want the most value each month. Get access to
-              popular rink sessions while keeping your monthly cost simple.
+              Built for skaters and families who live at the rink. Get unlimited access to popular rink programs and member perks that more than pay for themselves.
             </p>
 
             <div className="heroActions">
-              <a href="#pricing" className="primaryBtn" target="_top">
-                View Membership Options
-              </a>
-
               <a
                 href={`mailto:${CONTACT_EMAIL}?subject=Wings%20Arena%20Membership%20Inquiry`}
                 className="secondaryBtn"
@@ -79,6 +73,21 @@ export default function App() {
                 Email to Join
               </a>
             </div>
+
+            <button
+              className="scrollHint"
+              onClick={() => {
+                const el = document.getElementById("pricing");
+                if (!el) return;
+                const top = el.getBoundingClientRect().top + window.pageYOffset;
+                window.scrollTo({ top, behavior: "smooth" });
+              }}
+            >
+              <span>View membership options</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
           </div>
 
           <div className="heroCard">

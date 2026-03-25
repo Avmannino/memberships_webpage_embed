@@ -85,7 +85,7 @@ a {
 .heroCardTop {
   position: relative;
   z-index: 1;
-  margin: 0 0 10px;
+  margin: -40px 0 10px;
 }
 
 .heroCardHeading {
@@ -174,11 +174,36 @@ a {
   transform: translateY(-1px);
 }
 
+.scrollHint {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #d64042;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  animation: scrollBounce 2s ease-in-out infinite;
+  padding: 0;
+}
+
+.scrollHint:hover {
+  color: #f05053;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
 .heroMiniPoints {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 24px;
+  margin-top: 9px;
 }
 
 .heroMiniPoints span {
@@ -232,11 +257,11 @@ a {
 .heroCardLabel {
   position: relative;
   z-index: 1;
-  margin: 50px 0 12px;
+  margin: 65px 0 12px;
 }
 
 .heroList {
-  margin-top: 30px;
+  margin-top: 15px;
   padding-left: 30px;
   display: grid;
   gap: 16px;
@@ -245,7 +270,7 @@ a {
   color: var(--text);
   font-size: 16px;
   font-weight: 600;
-  margin-bottom: 0;
+  margin-bottom: 32px;
 }
 
 .heroList li {
@@ -495,6 +520,7 @@ a {
 
 .ctaPanel h2 {
   color: var(--text);
+  margin-top: 16px;
 }
 
 .ctaPanel p {
@@ -506,6 +532,7 @@ a {
 
 .lightEyebrow {
   color: rgba(250, 65, 65, 0.836);
+  margin-bottom: 28px;
 }
 
 .lightBtn {
@@ -527,6 +554,13 @@ a {
     box-shadow:
       0 0 0 1px rgba(218, 0, 53, 0.22),
       0 16px 38px rgba(0, 0, 0, 0.34);
+  }
+}
+
+@media (min-width: 981px) {
+  .scrollHint {
+    font-size: 1.25rem;
+    gap: 8px;
   }
 }
 
@@ -568,6 +602,7 @@ a {
 
   .heroLogoWrap {
     justify-content: center;
+    transform: translateX(-10px);
   }
 
   .heroContent,
