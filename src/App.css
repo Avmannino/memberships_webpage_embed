@@ -767,6 +767,11 @@ a {
     text-align: center;
   }
 
+  .secondaryBtn {
+    width: auto;
+    padding: 0 18px;
+  }
+
   .heroMiniPoints {
     gap: 8px;
     justify-content: center;
