@@ -46,12 +46,9 @@ export default function App() {
     const el = document.getElementById("pricing");
     if (!el) return;
 
-    const offset = 24;
-    const top = el.getBoundingClientRect().top + window.scrollY - offset;
-
-    window.scrollTo({
-      top,
+    el.scrollIntoView({
       behavior: "smooth",
+      block: "start",
     });
   };
 
