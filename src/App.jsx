@@ -79,8 +79,9 @@ export default function App() {
               onClick={() => {
                 const el = document.getElementById("pricing");
                 if (!el) return;
-                const top = el.getBoundingClientRect().top + window.pageYOffset;
-                window.scrollTo({ top, behavior: "smooth" });
+                const scroller = document.scrollingElement || document.documentElement;
+                const top = el.getBoundingClientRect().top + scroller.scrollTop;
+                scroller.scrollTo({ top, behavior: "smooth" });
               }}
             >
               <span>View membership options</span>
