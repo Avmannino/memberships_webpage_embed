@@ -82,8 +82,7 @@ export default function App() {
                   if (!startTime) startTime = timestamp;
                   const progress = Math.min((timestamp - startTime) / duration, 1);
                   const y = start + distance * ease(progress);
-                  document.documentElement.scrollTop = y;
-                  document.body.scrollTop = y;
+                  window.scrollTo(0, y);
                   if (progress < 1) requestAnimationFrame(step);
                 };
                 requestAnimationFrame(step);
