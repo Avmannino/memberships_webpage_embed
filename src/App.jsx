@@ -41,42 +41,24 @@ const includedBenefits = [
 
 export default function App() {
   const handleScrollToPricing = (e) => {
+    const isMobile =
+      "ontouchstart" in window ||
+      navigator.maxTouchPoints > 0 ||
+      window.innerWidth <= 980;
+
+    if (isMobile) {
+      return;
+    }
+
     e.preventDefault();
 
     const el = document.getElementById("pricing");
     if (!el) return;
 
-    const isMobile = "ontouchstart" in window || navigator.maxTouchPoints > 0;
-
-    if (!isMobile) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-      return;
-    }
-
-    const getScroller = () => {
-      const d = document.documentElement;
-      const b = document.body;
-      d.scrollTop += 1;
-      if (d.scrollTop > 0) { d.scrollTop -= 1; return d; }
-      b.scrollTop += 1;
-      if (b.scrollTop > 0) { b.scrollTop -= 1; return b; }
-      return d;
-    };
-
-    const scroller = getScroller();
-    const start = scroller.scrollTop;
-    const target = el.getBoundingClientRect().top + start;
-    const distance = target - start;
-    const duration = 600;
-    const ease = (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-    let startTime = null;
-    const step = (timestamp) => {
-      if (!startTime) startTime = timestamp;
-      const progress = Math.min((timestamp - startTime) / duration, 1);
-      scroller.scrollTop = start + distance * ease(progress);
-      if (progress < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
+    el.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
   return (
@@ -106,7 +88,11 @@ export default function App() {
               for themselves.
             </p>
 
-            <a href="#pricing" className="scrollHint" onClick={handleScrollToPricing}>
+            <a
+              href="#pricing"
+              className="scrollHint"
+              onClick={handleScrollToPricing}
+            >
               <span>View membership options</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -149,7 +135,9 @@ export default function App() {
           <div className="container introGrid">
             <div className="sectionHeadingBlock">
               <p className="sectionEyebrow">Why Join?</p>
-              <h2>Built for regular skaters, hockey players, and active families</h2>
+              <h2>
+                Built for regular skaters, hockey players, and active families
+              </h2>
               <p className="sectionText">
                 Some skaters stop by the rink. Others practically call it home.
                 If skating is part of your regular routine, a Wings Arena
@@ -267,8 +255,8 @@ export default function App() {
               <div className="faqItem">
                 <h3>Can I cancel anytime?</h3>
                 <p>
-                  Yes. You are free to cancel at any time with no additional fees
-                  or penalties.
+                  Yes. You are free to cancel at any time with no additional
+                  fees or penalties.
                 </p>
               </div>
             </div>
