@@ -72,12 +72,21 @@ export default function App() {
                 e.preventDefault();
                 const el = document.getElementById("pricing");
                 if (!el) return;
-                const top = el.getBoundingClientRect().top + window.pageYOffset;
-                try {
-                  window.scrollTo({ top, behavior: "smooth" });
-                } catch {
-                  window.scrollTo(0, top);
-                }
+                const target = el.getBoundingClientRect().top + window.pageYOffset;
+                const start = window.pageYOffset;
+                const distance = target - start;
+                const duration = 600;
+                const ease = (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+                let startTime = null;
+                const step = (timestamp) => {
+                  if (!startTime) startTime = timestamp;
+                  const progress = Math.min((timestamp - startTime) / duration, 1);
+                  const y = start + distance * ease(progress);
+                  document.documentElement.scrollTop = y;
+                  document.body.scrollTop = y;
+                  if (progress < 1) requestAnimationFrame(step);
+                };
+                requestAnimationFrame(step);
               }}
             >
               <span>View membership options</span>
