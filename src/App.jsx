@@ -72,8 +72,20 @@ export default function App() {
                 e.preventDefault();
                 const el = document.getElementById("pricing");
                 if (!el) return;
-                const target = el.getBoundingClientRect().top + window.pageYOffset;
-                const start = window.pageYOffset;
+
+                const getScroller = () => {
+                  const d = document.documentElement;
+                  const b = document.body;
+                  d.scrollTop += 1;
+                  if (d.scrollTop > 0) { d.scrollTop -= 1; return d; }
+                  b.scrollTop += 1;
+                  if (b.scrollTop > 0) { b.scrollTop -= 1; return b; }
+                  return d;
+                };
+
+                const scroller = getScroller();
+                const start = scroller.scrollTop;
+                const target = el.getBoundingClientRect().top + start;
                 const distance = target - start;
                 const duration = 600;
                 const ease = (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
@@ -81,8 +93,7 @@ export default function App() {
                 const step = (timestamp) => {
                   if (!startTime) startTime = timestamp;
                   const progress = Math.min((timestamp - startTime) / duration, 1);
-                  const y = start + distance * ease(progress);
-                  window.scrollTo(0, y);
+                  scroller.scrollTop = start + distance * ease(progress);
                   if (progress < 1) requestAnimationFrame(step);
                 };
                 requestAnimationFrame(step);
