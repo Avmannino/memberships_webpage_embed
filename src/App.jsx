@@ -70,7 +70,14 @@ export default function App() {
               className="scrollHint"
               onClick={(e) => {
                 e.preventDefault();
-                document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" });
+                const el = document.getElementById("pricing");
+                if (!el) return;
+                const top = el.getBoundingClientRect().top + window.pageYOffset;
+                try {
+                  window.scrollTo({ top, behavior: "smooth" });
+                } catch {
+                  window.scrollTo(0, top);
+                }
               }}
             >
               <span>View membership options</span>
