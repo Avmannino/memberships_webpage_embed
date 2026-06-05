@@ -40,51 +40,19 @@ const includedBenefits = [
 ];
 
 export default function App() {
-  const handleScrollToPricing = (e) => {
+  const handleScrollToPricing = () => {
+    if (window.innerWidth > 980) return;
+
     const el = document.getElementById("pricing");
     if (!el) return;
 
-    const isMobile =
-      "ontouchstart" in window ||
-      navigator.maxTouchPoints > 0 ||
-      window.innerWidth <= 980;
+    const top = el.getBoundingClientRect().top + window.pageYOffset - 24;
+    window.scrollTo({ top, behavior: "smooth" });
 
-    if (!isMobile) {
-      e.preventDefault();
-      // Desktop: iframe is full-height so the Wix page scrolls, not the iframe.
-      // Wix wraps embeds in their own iframe, so window.parent is that Wix
-      // wrapper (no listener). Send to window.top to reach the actual Wix page.
-      const offset = Math.round(el.getBoundingClientRect().top - 24);
-      const msg = { type: "wingsArenaScrollTo", offset };
-      try { window.parent.postMessage(msg, "*"); } catch (_) {}
-      if (window.top !== window.parent) {
-        try { window.top.postMessage(msg, "*"); } catch (_) {}
-      }
-      return;
-    }
-
-    // Mobile only:
-    // prevent the default jump and use window-based scrolling instead of the
-    // custom scroller animation that was failing on mobile.
-    e.preventDefault();
-
-    const top =
-      el.getBoundingClientRect().top + window.pageYOffset - 24;
-
-    window.scrollTo({
-      top,
-      behavior: "smooth",
-    });
-
-    // Fallback for mobile browsers / embeds that ignore smooth window scrolling.
     setTimeout(() => {
       const retryEl = document.getElementById("pricing");
       if (!retryEl) return;
-
-      const retryTop =
-        retryEl.getBoundingClientRect().top + window.pageYOffset - 24;
-
-      window.scrollTo(0, retryTop);
+      window.scrollTo(0, retryEl.getBoundingClientRect().top + window.pageYOffset - 24);
     }, 450);
   };
 
@@ -116,7 +84,6 @@ export default function App() {
             </p>
 
             <a
-              href="#pricing"
               className="scrollHint"
               onClick={handleScrollToPricing}
             >
@@ -132,7 +99,8 @@ export default function App() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >
-                <polyline points="6 9 12 15 18 9" />
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <polyline points="19 12 12 19 5 12" />
               </svg>
             </a>
           </div>
