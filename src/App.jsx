@@ -51,10 +51,15 @@ export default function App() {
 
     if (!isMobile) {
       e.preventDefault();
-      // Desktop: the iframe is full-height so the Wix parent page scrolls,
-      // not the iframe. postMessage tells the parent to scroll to the right spot.
+      // Desktop: iframe is full-height so the Wix page scrolls, not the iframe.
+      // Wix wraps embeds in their own iframe, so window.parent is that Wix
+      // wrapper (no listener). Send to window.top to reach the actual Wix page.
       const offset = Math.round(el.getBoundingClientRect().top - 24);
-      window.parent.postMessage({ type: "wingsArenaScrollTo", offset }, "*");
+      const msg = { type: "wingsArenaScrollTo", offset };
+      try { window.parent.postMessage(msg, "*"); } catch (_) {}
+      if (window.top !== window.parent) {
+        try { window.top.postMessage(msg, "*"); } catch (_) {}
+      }
       return;
     }
 
