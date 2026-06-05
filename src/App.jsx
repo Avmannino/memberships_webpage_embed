@@ -51,7 +51,8 @@ export default function App() {
 
     if (!isMobile) {
       e.preventDefault();
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      const top = el.getBoundingClientRect().top + window.pageYOffset - 24;
+      window.scrollTo({ top, behavior: "smooth" });
       return;
     }
 
