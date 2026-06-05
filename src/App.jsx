@@ -51,8 +51,10 @@ export default function App() {
 
     if (!isMobile) {
       e.preventDefault();
-      const top = el.getBoundingClientRect().top + window.pageYOffset - 24;
-      window.scrollTo({ top, behavior: "smooth" });
+      // Desktop: the iframe is full-height so the Wix parent page scrolls,
+      // not the iframe. postMessage tells the parent to scroll to the right spot.
+      const offset = Math.round(el.getBoundingClientRect().top - 24);
+      window.parent.postMessage({ type: "wingsArenaScrollTo", offset }, "*");
       return;
     }
 
