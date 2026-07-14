@@ -206,10 +206,6 @@ export default function App() {
                 </article>
               ))}
             </div>
-
-            <p className="finePrint">
-              All memberships require a 2-month minimum commitment.
-            </p>
           </div>
         </section>
 
