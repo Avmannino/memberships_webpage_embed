@@ -534,6 +534,99 @@ a {
   font-weight: 800;
 }
 
+.lockerSection {
+  padding-top: 0;
+}
+
+.lockerCard {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #111f3d, #0a1530);
+  border: 1px solid var(--accent);
+  box-shadow:
+    0 0 0 1px rgba(218, 0, 53, 0.22),
+    0 16px 38px rgba(0, 0, 0, 0.34);
+  border-radius: var(--radius-xl);
+  padding: 40px 44px;
+}
+
+.lockerCard::before {
+  content: "";
+  position: absolute;
+  inset: auto -120px -120px auto;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(250, 65, 65, 0.836);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.lockerCardBody {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.lockerCardText h2 {
+  margin: 0;
+  font-size: clamp(1.7rem, 2.6vw, 2.3rem);
+  line-height: 1.12;
+  color: var(--text);
+}
+
+.lockerCardText .sectionText {
+  margin-top: 14px;
+}
+
+.lockerCardPricing {
+  background: linear-gradient(180deg, rgba(60, 62, 68, 0.5), rgba(44, 46, 51, 0.5));
+  border: 1px solid var(--stroke);
+  border-radius: 18px;
+  padding: 24px 28px;
+  text-align: center;
+}
+
+.lockerPriceRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.lockerPriceOld {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--muted-2);
+  text-decoration: line-through;
+  text-decoration-color: rgba(250, 65, 65, 0.9);
+  text-decoration-thickness: 2px;
+}
+
+.lockerPriceNew {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.lockerPriceLabel {
+  margin: 6px 0 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(250, 65, 65, 0.836);
+}
+
+.lockerBtn {
+  margin-top: 18px;
+  width: 100%;
+}
+
 .faqGrid {
   display: flex;
   flex-direction: column;
@@ -659,7 +752,8 @@ a {
 @media (max-width: 980px) {
   .heroGrid,
   .introGrid,
-  .faqGrid {
+  .faqGrid,
+  .lockerCardBody {
     grid-template-columns: 1fr;
   }
 
@@ -681,7 +775,8 @@ a {
   .heroContent,
   .heroCardInner,
   .benefitsPanel,
-  .ctaPanel {
+  .ctaPanel,
+  .lockerCard {
     padding: 26px;
   }
 
@@ -728,6 +823,7 @@ a {
   .ctaPanel,
   .introSection,
   .pricingSection,
+  .lockerSection,
   .faqSection {
     text-align: center;
   }

@@ -213,6 +213,40 @@ export default function App() {
           </div>
         </section>
 
+        <section className="section lockerSection">
+          <div className="container">
+            <article className="lockerCard">
+              <div className="lockerCardBody">
+                <div className="lockerCardText">
+                  <p className="sectionEyebrow">Member Perk</p>
+                  <h2>Save on Locker Rentals</h2>
+                  <p className="sectionText">
+                    Stash your gear at the rink year-round. Members get 20%
+                    off monthly locker rentals — just one more way your
+                    membership pays for itself.
+                  </p>
+                </div>
+
+                <div className="lockerCardPricing">
+                  <div className="lockerPriceRow">
+                    <span className="lockerPriceOld">$49/month</span>
+                    <span className="lockerPriceNew">$39/month</span>
+                  </div>
+                  <p className="lockerPriceLabel">Member Price</p>
+
+                  <a
+                    className="primaryBtn lockerBtn"
+                    href="https://www.wingsarena.com/locker-rentals"
+                    target="_top"
+                  >
+                    Learn More
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
         <section className="section faqSection">
           <div className="container faqGrid">
             <div>
